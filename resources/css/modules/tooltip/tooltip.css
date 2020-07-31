@@ -1,0 +1,300 @@
+:root {
+	--tooltip-bg:           	color(var(--state-secondary) a(85%));
+	--tooltip-color: 			var(--color-text);
+	--tooltip-base-size:      	10px;
+	--tooltip-arrow-height:   	6px;
+}
+
+[data-tooltip] {
+	position: relative;
+	&, label {
+		cursor: pointer;
+	}
+	&::after, &::before {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+		transition: all .18s ease-out .18s;
+		z-index: 10;
+	}
+	&::after {
+		padding: .5em 1em;
+		content: attr(data-tooltip);
+		font-family: var(--font-family-base);
+		font-weight: var(--font-weight);
+		font-style: normal;
+		text-shadow: 0 0 1px #bbb;
+		font-size: calc(var(--tooltip-base-size) + 2px);
+		opacity: 0;
+		pointer-events: none;
+		transition: all .18s ease-out .18s;
+		background: var(--tooltip-bg);
+		border-radius: var(--border-radius);
+		color: var(--tooltip-color);
+		white-space: nowrap;
+	}
+	&::before {
+		content: '';
+
+		z-index: 11;
+	}
+	&:hover, &[data-tooltip-visible] {
+		&:before,
+		&:after {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+	&.is-empty-tooltip {
+		&:before,
+		&:after {
+			content: none
+		}
+	}
+	&:not([data-tooltip-pos]) {
+		&::after, &::before {
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%, 10px);
+			transform-origin: top;
+		}
+		&:after {
+			margin-bottom: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			margin-bottom: 5px;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(-50%, 0);
+			}
+		}
+	}
+	&[data-tooltip-break] {
+		&:after {
+			white-space: pre;
+		}
+	}
+	&[data-tooltip-blunt] {
+		&:before,
+		&:after {
+			transition: none;
+		}
+	}
+
+	&[data-tooltip-pos="up"] {
+		&::after, &::before {
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%, 10px);
+			transform-origin: top;
+		}
+		&:after {
+			margin-bottom: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: var(--state-secondary) transparent transparent transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(-50%, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos="up-left"] {
+		&::after, &::before {
+			bottom: 100%;
+			transform: translate(0, 10px);
+			transform-origin: top;
+		}
+		&:after {
+			left: 0;
+			margin-bottom: calc(5px + var(--tooltip-arrow-height));
+		}
+		&::before {
+			left: 5px;
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: var(--state-secondary) transparent transparent transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos="up-right"] {
+		&:after, &::before {
+			bottom: 100%;
+			transform: translate(0, 10px);
+			transform-origin: top;
+		}
+		&::after {
+			right: 0;
+			margin-bottom: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			right: 5px;
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: var(--state-secondary) transparent transparent transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos='down'] {
+		&:after, &::before {
+			left: 50%;
+			top: 100%;
+			transform: translate(-50%, -10px);
+		}
+		&::after {
+			margin-top: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			border-width:  var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: transparent transparent var(--state-secondary) transparent;
+		}
+
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(-50%, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos='down-left'] {
+		&:after, &::before {
+			top: 100%;
+			transform: translate(0, -10px);
+		}
+		&::after {
+			left: 0;
+			margin-top: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			left: 5px;
+			border-width:  var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: transparent transparent var(--state-secondary) transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos='down-right'] {
+		&:after, &::before {
+			top: 100%;
+			transform: translate(0, -10px);
+		}
+		&::after {
+			right: 0;
+			margin-top: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			right: 5px;
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: transparent transparent var(--state-secondary) transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	&[data-tooltip-pos='left'] {
+		&:after, &::before {
+			right: 100%;
+			top: 50%;
+			transform: translate(10px, -50%);
+		}
+		&::after {
+			margin-right: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: transparent transparent transparent var(--state-secondary);
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, -50%);
+			}
+		}
+	}
+
+	&[data-tooltip-pos='right'] {
+		&:after, &::before {
+			left: 100%;
+			top: 50%;
+			transform: translate(-10px, -50%);
+		}
+		&::after {
+			margin-left: calc(5px + var(--tooltip-arrow-height));
+		}
+		&:before {
+			border-width: var(--tooltip-arrow-height);
+			border-style: solid;
+			border-color: transparent var(--state-secondary) transparent transparent;
+		}
+		&:hover, &[data-tooltip-visible] {
+			&:after, &::before {
+				transform: translate(0, -50%);
+			}
+		}
+	}
+
+	&[data-tooltip-length='small'] {
+		&:after {
+			white-space: normal;
+			width: 80px;
+		}
+	}
+
+	&[data-tooltip-length='medium'] {
+		&:after {
+			white-space: normal;
+			width: 150px;
+		}
+	}
+
+	&[data-tooltip-length='large'] {
+		&:after {
+			white-space: normal;
+			width: 260px;
+		}
+	}
+
+	&[data-tooltip-length='xlarge'] {
+		&:after {
+			white-space: normal;
+			width: 380px;
+
+			@media screen and (max-width: 768px) {
+				white-space: normal;
+				width: 90vw;
+			}
+		}
+	}
+
+	&[data-tooltip-length='fit'] {
+		&:after {
+			white-space: normal;
+			width: 100%;
+		}
+	}
+}

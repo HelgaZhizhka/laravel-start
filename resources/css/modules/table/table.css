@@ -1,0 +1,156 @@
+:root {
+	--table-bg-color: var(--color-white);
+	--table-border-color: var(--component-border-color);
+	--table-border-width: var(--component-border-width);
+	--table-header-bg-color: transparent;
+	--table-spacing-x: .75rem;
+	--table-spacing-y: .5rem;
+	--table-hover-color: var(--color-white);
+	--table-hover-bg-color: var(--state-primary);
+	--table-stripe-bg-color: var(--component-bg-color);
+}
+
+table {
+	width: 100%;
+}
+
+.table {
+	background-color: var(--table-bg-color);
+	border-collapse: collapse;
+	margin-bottom: 1.5rem;
+	border-collapse: collapse;
+	& caption {
+		caption-side: bottom;
+		font-size: var(--font-size-small);
+		color: var(--color-muted);
+		text-align: center;
+		padding-top: var(--table-spacing-y);
+	}
+	& th {
+		text-align: left;
+		background-color: var(--table-header-bg-color);
+		border-bottom: solid calc(var(--table-border-width) * 2) var(--table-border-color);
+		padding: var(--table-spacing-y) var(--table-spacing-x);
+	}
+
+	& td {
+		border-bottom: solid var(--table-border-width) var(--table-border-color);
+		padding: var(--table-spacing-y) var(--table-spacing-x);
+	}
+
+	/* Variations */
+	&_bordered {
+		border: solid var(--table-border-width) var(--table-border-color);
+
+		& td {
+			border-style: solid;
+			border-width: var(--table-border-width);
+			border-color: var(--table-border-color);
+		}
+	}
+
+	&_hover {
+		& tbody tr:hover td {
+			color: var(--table-hover-color);
+			background-color: var(--table-hover-bg-color);
+		}
+	}
+
+	&_striped {
+		& tr:nth-child(odd) td {
+			background-color: var(--table-stripe-bg-color);
+		}
+	}
+
+	&_no-bordered {
+		&, td {
+			border: none;
+		}
+	}
+	.is-empty {
+		padding: 20px;
+		text-align: center;
+		.title {
+			margin: 0;
+		}
+	}
+}
+
+
+
+@media (--breakpoint-md-down) {
+	.is-responsive {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		display: block;
+		position: relative;
+	}
+	.is-responsive td:empty:before {
+		content: " ";
+	}
+	.is-responsive th,
+	.is-responsive td {
+		margin: 0;
+		vertical-align: top;
+	}
+	.is-responsive th {
+		text-align: left;
+	}
+	.is-responsive thead {
+		border-right: solid 2px #dbdbdb;
+		display: block;
+		float: left;
+	}
+	.is-responsive thead tr {
+		display: block;
+		padding: 0 10px 0 0;
+	}
+	.is-responsive thead tr th::before {
+		content: " ";
+	}
+	.is-responsive thead td,
+	.is-responsive thead th {
+		border-width: 0 0 1px;
+	}
+	.is-responsive tbody {
+		display: block;
+		width: auto;
+		position: relative;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+	.is-responsive tbody tr {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.is-responsive th {
+		display: block;
+		text-align: right;
+	}
+	.is-responsive td {
+		display: block;
+		min-height: 1.25em;
+		text-align: left;
+	}
+	.is-responsive th:last-child,
+	.is-responsive td:last-child {
+		border-bottom-width: 0;
+	}
+	.is-responsive tr:last-child td:not(:last-child) {
+		border: 1px solid #dbdbdb;
+		border-width: 0 0 1px;
+	}
+	.is-responsive.is-bordered td,
+	.is-responsive.is-bordered th {
+		border-width: 1px;
+	}
+	.is-responsive.is-bordered tr td:last-child,
+	.is-responsive.is-bordered tr th:last-child {
+		border-bottom-width: 1px;
+	}
+	.is-responsive.is-bordered tr:last-child td,
+	.is-responsive.is-bordered tr:last-child th {
+		border-width: 1px;
+	}
+}

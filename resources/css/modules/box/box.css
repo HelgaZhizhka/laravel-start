@@ -1,0 +1,89 @@
+:root {
+	--box-color: var(--color-text);
+	--box-bg: #fff;
+	--box-shadow: var(--component-box-shadow-box);
+	--box-padding: 1.25rem;
+}
+
+.box {
+	display: block;
+	padding: var(--box-padding);
+	background-color: var(--box-bg);
+	box-shadow: var(--box-shadow);
+	color: var(--box-color);
+	&:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	&_rounded {
+		border-radius: var(--border-radius);
+	}
+	&_lg {
+		@media (--breakpoint-lg-up) {
+			width: 33.33333%;
+		}
+	}
+	&_centered {
+		margin: auto;
+		text-align: center;
+	}
+	p {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.divider {
+		display: inline-block;
+		size: 1px 18px;
+		margin: 0 5px;
+		background-color: var(--color-grey);
+	}
+	&_about, &_tender {
+		.box__footer {
+			padding-top: 1rem;
+		}
+	}
+	&_about {
+		.title {
+			color: var(--state-success);
+		}
+		.box__footer {
+			text-align: right;
+		}
+		.media__image {
+			flex: 0 0 120px;
+		}
+	}
+	&_tender, &_category {
+		.box__footer {
+			text-align: center;
+		}
+	}
+	&_category {
+		background: none;
+		padding: 1.25rem 0;
+	}
+	&_login {
+		margin: auto;
+		text-align: center;
+		@media (--breakpoint-lg-up) {
+			width: 33.33333%;
+		}
+		.box__header {
+			margin-bottom: 1.5rem;
+			.button {
+				margin: 0;
+			}
+			.divider {
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 10px;
+				transform: rotate(20deg);
+			}
+		}
+	}
+}

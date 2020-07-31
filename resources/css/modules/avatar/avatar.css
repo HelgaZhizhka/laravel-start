@@ -1,0 +1,29 @@
+:root {
+	--avatar-size-sm: 64px;
+	--avatar-size-md: 160px;
+	--avatar-size-lg: 280px;
+	--avatar-bg: var(--color-grey);
+}
+.avatar {
+	display: block;
+	position: relative;
+	/* background: url(../images/avatar.png) no-repeat; */
+	background-size: cover;
+	overflow: hidden;
+	&_sm {
+		size: var(--avatar-size-sm);
+	}
+	&_md {
+		size: var(--avatar-size-md);
+	}
+	&_lg {
+		size: var(--avatar-size-lg);
+	}
+	img {
+		size: 100%;
+		object-fit: cover;
+	}
+}
+.avatar_xl {
+	background: none;
+}

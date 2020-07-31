@@ -1,0 +1,17 @@
+.logo-animation-enter-active {
+	animation: logo-animation .5s;
+}
+.logo-animation-leave-active {
+	animation: logo-animation .5s reverse;
+}
+@keyframes logo-animation {
+	0% {
+		transform: scale(0);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

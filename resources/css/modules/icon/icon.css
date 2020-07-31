@@ -1,0 +1,29 @@
+.icon {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+}
+.icon_close {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  user-select: none;
+  text-decoration: none;
+  font-style: normal;
+  transition: background 0.2s linear;
+  text-align: center;
+  color: var(--grey-dark);
+  &:hover, &:focus {
+    color: var(--grey);
+  }
+  &.icon_abs {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -14px;
+  }
+}
+.icon_status {
+  color: var(--state-success);
+}

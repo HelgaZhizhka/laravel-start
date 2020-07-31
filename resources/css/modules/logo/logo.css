@@ -1,0 +1,54 @@
+:root {
+	--logo-color: gray(85);
+	--logo-height: 38px;
+}
+
+.logo {
+	position: relative;
+	display: inline-block;
+	height: var(--logo-height);
+	align-self: center;
+	padding-right: 50px;
+	#logo-text {
+		fill: var(--logo-color);
+	}
+	#logo-icon-up, #logo-icon-down {
+		position: absolute;
+	}
+	#logo-icon-up {
+		top: 0;
+		right: -5px;
+		fill: gray(10%, 50%);
+	}
+	#logo-icon-down {
+		top: 10px;
+		right: 12px;
+		fill: gray(30%, 75%);
+	}
+	&:hover {
+		#logo-icon-up {
+			animation: icon-rotation 1.5s infinite !important;
+		}
+		#logo-icon-down {
+			animation: icon-rotation 2.5s infinite !important;
+		}
+	}
+	/*
+	@media (--breakpoint-md-down) {
+		#logo-text {
+			display: none;
+		}
+		#logo-icon-up {
+			left: -5px;
+			right: auto;
+		}
+		#logo-icon-down {
+			left: 12px;
+			right: auto;
+		}
+	}*/
+}
+@keyframes icon-rotation {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}

@@ -1,0 +1,80 @@
+.ui-radio {
+	vertical-align: middle;
+	margin: 0 3px 0 0;
+	size: 18px;
+}
+
+.ui-radio + .label {
+	user-select: none;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 18px;
+}
+
+.ui-radio:not(checked) {
+	position: absolute;
+	opacity: 0;
+}
+
+.ui-radio:not(checked) + .label {
+	position: relative;
+	padding: 0 0 0 25px;
+	color: var(--color-text);
+}
+
+.ui-radio:not(checked) + .label::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	size: 18px;
+	background-color: white;
+	border: 1px solid var(--state-primary);
+	border-radius: 50%;
+}
+
+.ui-radio:not(checked) + .label::after {
+	content: '';
+	position: absolute;
+	display: none;
+	top: 4px;
+	left: 4px;
+	size: 10px;
+	background-color: var(--state-primary);
+	border-radius: 50%;
+}
+
+.ui-radio:checked + .label {
+	color: var(--color-text);
+}
+
+.ui-radio:checked + .label::after {
+	display: block;
+}
+
+.ui-radio:hover + .label::before {
+	border: 2px solid var(--state-primary);
+}
+
+
+.ui-radio:disabled + .label,
+.ui-radio.disabled + .label {
+	opacity: .5;
+	pointer-events: none;
+}
+
+
+.ui-radio:disabled + .label::before,
+.ui-radio.disabled + .label::before {
+	border: 1px solid #b7b7b7;
+}
+
+
+.ui-radio:disabled + .label::after,
+.ui-radio.disabled + .label::after {
+	display: none;
+}
+
+
+

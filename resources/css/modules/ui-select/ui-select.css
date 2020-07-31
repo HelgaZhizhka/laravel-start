@@ -1,0 +1,35 @@
+.ui-select {
+	height: var(--input-height);
+	padding-left: .5rem;
+	line-height: var(--input-height);
+	background-color: var(--input-bg-color);
+	border: var(--input-border-width) solid var(--input-border-color);
+	border-radius: var(--input-border-radius);
+	transition:
+		var(--input-speed) border-color,
+		var(--component-speed) background-color,
+		var(--component-speed) color;
+	&_xs {
+		font-size: var(--input-font-size-xs);
+		height: var(--input-height-xs);
+		line-height: var(--input-height-xs);
+	}
+
+	&_sm {
+		font-size: var(--input-font-size-sm);
+		height: var(--input-height-sm);
+		line-height: var(--input-height-sm);
+	}
+
+	&_lg {
+		font-size: var(--input-font-size-lg);
+		height: var(--input-height-lg);
+		line-height: var(--input-height-lg);
+	}
+
+	&_xl {
+		font-size: var(--input-font-size-xl);
+		height: var(--input-height-xl);
+		line-height: var(--input-height-xl);
+	}
+}

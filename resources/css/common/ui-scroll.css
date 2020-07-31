@@ -1,0 +1,18 @@
+/* Webkit scrollbar */
+.ui-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.ui-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.ui-scroll::-webkit-scrollbar-track {
+  background: #ccc;
+}
+.ui-scroll::-webkit-scrollbar-thumb {
+  background-color: #a3a3a3;
+}
+.ui-scroll::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(51,51,51,0.7);
+}
+

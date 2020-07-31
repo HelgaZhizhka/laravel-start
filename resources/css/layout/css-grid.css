@@ -1,0 +1,17 @@
+/*css grid layput*/
+
+@supports (display: grid) {
+	.grid {
+		display: grid;
+	}
+	.grid_aside-right {
+		grid-template-columns: 1fr 30%;
+	}
+}
+
+@supports not (display: grid) {
+	.grid {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}

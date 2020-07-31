@@ -1,0 +1,57 @@
+/*! File buttons */
+
+.file-button {
+	position: relative;
+
+	& input[type="file"] {
+		position: absolute;
+		height: 1px;
+		width: 1px;
+		background: none;
+		border: 0;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		overflow: hidden;
+		padding: 0;
+
+		/* When the input receives focus, simulate button focus states on the label */
+		&:focus + label { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color) alpha(50%)); }
+		&:focus + label.button_secondary { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-secondary) alpha(50%)); }
+		&:focus + label.button_success { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-success) alpha(50%)); }
+		&:focus + label.button_info { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-info) alpha(50%)); }
+		&:focus + label.button_warning { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-warning) alpha(50%)); }
+		&:focus + label.button_danger { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-danger) alpha(50%)); }
+		&:focus + label.button_light { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-light) alpha(50%)); }
+		&:focus + label.button_dark { box-shadow: 0 0 0 var(--button-focus-width) color(var(--button-bg-color-dark) alpha(50%)); }
+	}
+}
+
+.file-upload {
+	position: relative;
+	margin-bottom: 1rem;
+	&_sm {
+		size: 250px;
+	}
+}
+/*
+.file-upload__label {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	size: 100%;
+	background-color: #f2f2f2;
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: 1px dashed #ddd;
+	transition: var(--component-speed);
+	&:hover {
+		background-color: rgba(127, 219, 255, .85);
+	}
+}
+.file-upload__image {
+	size: 100%;
+	overflow: hidden;
+	background: #f2f2f2 url(../images/avatar.png) no-repeat center;
+	background-size: cover;
+}*/

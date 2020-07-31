@@ -1,0 +1,20 @@
+/* Message for update old browser */
+.buorg {
+	border-bottom: 1px solid #000;
+	background: #ccc no-repeat 1em 0.55em url(http://browser-update.org/img/dialog-warning.gif);
+	text-align: left;
+	font-size: calc(var(--font-size) - 2px);
+	line-height: 1;
+	cursor: pointer;
+	color: #000;
+	a {
+		color: var(--color-text);
+		font-size: calc(var(--font-size) - 2px);
+		&:hover, &:active {
+			color: color(var(--color-text) alpha(-10%));
+		}
+		&:visited {
+			color: color(var(--color-text) blackness(80%));
+		}
+	}
+}
